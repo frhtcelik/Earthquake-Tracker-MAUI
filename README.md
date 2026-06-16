@@ -28,6 +28,18 @@ This project is a cross-platform mobile application developed with **.NET MAUI**
 *   **Native Integration:** Android Manifest Permissions, Location Services, SMS Manager API
 
 ---
+<img width="388" height="837" alt="image" src="https://github.com/user-attachments/assets/88443154-081a-4a35-b7ea-f0de7197187c" />
+<img width="390" height="832" alt="image" src="https://github.com/user-attachments/assets/c9a9c55b-1848-4cd0-b6ee-e81c644b5a35" />
+<img width="391" height="828" alt="image" src="https://github.com/user-attachments/assets/98852252-85ec-4dd8-89ca-27c325dc5a4a" />
+<img width="390" height="822" alt="image" src="https://github.com/user-attachments/assets/f9cc97e1-5f16-4b26-9e5c-88cecf706399" />
+<img width="387" height="826" alt="image" src="https://github.com/user-attachments/assets/bc88c89e-e46a-44ca-aa90-abe4874afe60" />
+<img width="390" height="828" alt="image" src="https://github.com/user-attachments/assets/328b5af3-dbeb-4536-8787-2c462a5afe1f" />
+<img width="390" height="563" alt="image" src="https://github.com/user-attachments/assets/52690eb3-44a6-43b6-870a-73a6a47683d7" />
+<img width="386" height="567" alt="image" src="https://github.com/user-attachments/assets/b9eaaea2-5f15-4c79-bd8e-60280cf281b6" />
+<img width="382" height="318" alt="image" src="https://github.com/user-attachments/assets/5db864b3-90a4-49ae-aacd-75ffe47917df" />
+
+
+
 
 ## 🇹🇷 Türkçe
 
