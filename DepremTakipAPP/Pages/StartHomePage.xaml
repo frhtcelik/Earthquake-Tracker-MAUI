@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DepremTakipAPP.Pages.StartHomePage"
+             Title=""
+             BackgroundColor="#F5F6FA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25" VerticalOptions="Center">
+
+            <Label Text="Sismik Takip Merkezi" 
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="#333333"/>
+
+            <Label Text="Bitirme projesi.FERHAT ÇELİK " 
+                   FontSize="14" 
+                   TextColor="Gray" 
+                   HorizontalOptions="Center" 
+                   HorizontalTextAlignment="Center" 
+                   Margin="0,-15,0,10"/>
+
+            <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto" ColumnSpacing="15" RowSpacing="15">
+
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#E3F2FD" CornerRadius="15" HasShadow="True" BorderColor="Transparent" Padding="15">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSonDepremlerTapped" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Label Text="📝" FontSize="36" HorizontalOptions="Center"/>
+                        <Label Text="Son Depremler" FontSize="14" FontAttributes="Bold" TextColor="#1565C0" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#E8F5E9" CornerRadius="15" HasShadow="True" BorderColor="Transparent" Padding="15">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHaritaTapped" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Label Text="🗺️" FontSize="36" HorizontalOptions="Center"/>
+                        <Label Text="Konum &amp; Harita" FontSize="14" FontAttributes="Bold" TextColor="#2E7D32" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#FFF3E0" CornerRadius="15" HasShadow="True" BorderColor="Transparent" Padding="15">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIsiHaritasiTapped" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Label Text="🌋" FontSize="36" HorizontalOptions="Center"/>
+                        <Label Text="Isı Haritası" FontSize="14" FontAttributes="Bold" TextColor="#E65100" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#F3E5F5" CornerRadius="15" HasShadow="True" BorderColor="Transparent" Padding="15">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIstatistikTapped" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Label Text="📊" FontSize="36" HorizontalOptions="Center"/>
+                        <Label Text="İstatistikler" FontSize="14" FontAttributes="Bold" TextColor="#6A1B9A" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#FFEBEE" CornerRadius="15" HasShadow="True" BorderColor="Transparent" Padding="15">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAyarlarTapped" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Label Text="🆘" FontSize="36" HorizontalOptions="Center"/>
+                        <Label Text="Güvenlik &amp; Kişiselleştirme" FontSize="16" FontAttributes="Bold" TextColor="#C62828" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

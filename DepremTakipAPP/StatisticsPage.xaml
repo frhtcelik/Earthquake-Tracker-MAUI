@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DepremTakipAPP.StatisticsPage"
+             Title="Veri Analizi ve İstatistikler"
+             BackgroundColor="#F5F6FA">
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Label Text="Sismik Veri Analizi" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333333"/>
+                <Label Text="Son kaydedilen sismik hareketlerin istatistiksel dökümü." FontSize="14" TextColor="Gray" HorizontalOptions="Center" Margin="0,-10,0,10"/>
+
+                <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" ColumnSpacing="15" RowSpacing="15">
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#E3F2FD" BorderColor="Transparent" CornerRadius="10" Padding="15" HasShadow="False">
+                        <VerticalStackLayout>
+                            <Label Text="Kayıt Sayısı" FontSize="12" TextColor="#1565C0" FontAttributes="Bold"/>
+                            <Label Text="{Binding ToplamDepremText}" FontSize="28" TextColor="#0D47A1" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#FFF3E0" BorderColor="Transparent" CornerRadius="10" Padding="15" HasShadow="False">
+                        <VerticalStackLayout>
+                            <Label Text="Ortalama Şiddet" FontSize="12" TextColor="#E65100" FontAttributes="Bold"/>
+                            <Label Text="{Binding OrtalamaSiddetText}" FontSize="28" TextColor="#BF360C" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#FFEBEE" BorderColor="Transparent" CornerRadius="10" Padding="15" HasShadow="False">
+                        <VerticalStackLayout>
+                            <Label Text="En Büyük Deprem (Maks)" FontSize="12" TextColor="#C62828" FontAttributes="Bold"/>
+                            <Label Text="{Binding EnBuyukDepremText}" FontSize="20" TextColor="#B71C1C" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+
+                <Label Text="Şiddet Dağılım Grafiği" FontSize="18" FontAttributes="Bold" TextColor="#333333"/>
+
+                <Frame BorderColor="LightGray" CornerRadius="10" Padding="15" HasShadow="False" BackgroundColor="#F5F6FA">
+                    <VerticalStackLayout Spacing="15">
+                        <VerticalStackLayout Spacing="5">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Label Grid.Column="0" Text="Hafif (0.0 - 3.0)" FontSize="14" TextColor="Black"/>
+                                <Label Grid.Column="1" Text="{Binding HafifOran, StringFormat='{0:P0}'}" FontSize="14" FontAttributes="Bold" TextColor="Black"/>
+                            </Grid>
+                            <ProgressBar Progress="{Binding HafifOran}" ProgressColor="Green" HeightRequest="10"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="5">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Label Grid.Column="0" Text="Orta (3.0 - 4.5)" FontSize="14" TextColor="Black"/>
+                                <Label Grid.Column="1" Text="{Binding OrtaOran, StringFormat='{0:P0}'}" FontSize="14" FontAttributes="Bold" TextColor="Black"/>
+                            </Grid>
+                            <ProgressBar Progress="{Binding OrtaOran}" ProgressColor="Orange" HeightRequest="10"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="5">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Label Grid.Column="0" Text="Şiddetli (4.5 ve üzeri)" FontSize="14" TextColor="Black"/>
+                                <Label Grid.Column="1" Text="{Binding SiddetliOran, StringFormat='{0:P0}'}" FontSize="14" FontAttributes="Bold" TextColor="Black"/>
+                            </Grid>
+                            <ProgressBar Progress="{Binding SiddetliOran}" ProgressColor="Red" HeightRequest="10"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator x:Name="LoadingIndicator" 
+                           IsRunning="False" 
+                           IsVisible="False" 
+                           Color="RoyalBlue" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" 
+                           WidthRequest="60" 
+                           HeightRequest="60" />
+    </Grid>
+</ContentPage>

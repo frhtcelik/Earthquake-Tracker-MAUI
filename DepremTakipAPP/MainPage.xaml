@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:DepremTakipAPP.ViewModels"
+             xmlns:converters="clr-namespace:DepremTakipAPP.Converters"
+             x:Class="DepremTakipAPP.MainPage"
+             Title="Son Depremler"
+             BackgroundColor="#F5F6FA">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:TimeExtractorConverter x:Key="TimeExtractorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"
+                           HorizontalOptions="Center" VerticalOptions="Center"
+                           Color="RoyalBlue" WidthRequest="60" HeightRequest="60"/>
+
+        <RefreshView IsRefreshing="{Binding IsLoading}" Command="{Binding LoadEarthquakesCommand}" RefreshColor="RoyalBlue">
+
+            <CollectionView ItemsSource="{Binding Earthquakes}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10" Padding="10" CornerRadius="5" BorderColor="LightGray" BackgroundColor="White">
+                            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto">
+
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding Title}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"/>
+
+                                <VerticalStackLayout Grid.Row="1" Grid.Column="0"
+                                                     VerticalOptions="Center"
+                                                     Spacing="2">
+
+                                    <Label Text="{Binding DisplayTime}" 
+                                           FontSize="20" 
+                                           TextColor="#757575" />
+                                </VerticalStackLayout>
+
+                                <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
+                                       Text="{Binding Magnitude, StringFormat='{0:F1}'}"
+                                       FontSize="Large"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       VerticalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </RefreshView>
+    </Grid>
+</ContentPage>
